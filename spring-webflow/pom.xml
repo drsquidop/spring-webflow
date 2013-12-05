@@ -275,7 +275,7 @@
         </extensions>
 	</build>	
 	<properties>
-        <spring.version>3.0.5.RELEASE</spring.version>
+        <spring.version>3.1.1.RELEASE</spring.version>
         <old.project.version>2.3.0.RELEASE</old.project.version>
 	</properties>
 </project>
