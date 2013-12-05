@@ -5,8 +5,16 @@
 	<artifactId>spring-webflow</artifactId>
 	<packaging>jar</packaging>
 	<name>Spring Web Flow</name>
-	<version>2.3.0.RELEASE</version>
-	<dependencies>
+	<version>2.3.0.M1</version>
+    <distributionManagement>
+        <repository>
+            <id>gpn-test</id>
+            <name>GPN Repository</name>
+            <url>scp://repo.oddz.int/opt/jetty/default/webapps/maven</url>
+        </repository>
+    </distributionManagement>
+
+    <dependencies>
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
@@ -45,12 +53,12 @@
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-binding</artifactId>
-			<version>${project.version}</version>
+			<version>${old.project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-js</artifactId>
-			<version>${project.version}</version>
+			<version>${old.project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>backport-util-concurrent</groupId>
@@ -187,11 +195,15 @@
 		</dependency>
 	</dependencies>
 	<repositories>
-		<!-- Where the el-api is located -->	
-		<repository>
- 			<id>maven2.java.net</id>
- 			<url>http://download.java.net/maven/2</url>
-		</repository>
+		<!-- Where the el-api is located -->
+        <repository>
+            <id>new-jboss-repo</id>
+            <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+        </repository>
+        <repository>
+            <id>maven2.java.net</id>
+            <url>http://download.java.net/maven/2</url>
+        </repository>
 	</repositories>
 	<build>
 		<plugins>
@@ -254,8 +266,16 @@
 				</includes>
 			</testResource>
 		</testResources>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>1.0</version>
+            </extension>
+        </extensions>
 	</build>	
 	<properties>
-		<spring.version>3.0.5.RELEASE</spring.version>
-	</properties>	
+        <spring.version>3.0.5.RELEASE</spring.version>
+        <old.project.version>2.3.0.RELEASE</old.project.version>
+	</properties>
 </project>

@@ -404,15 +404,16 @@ public class FlowHandlerAdapter extends WebContentGenerator implements HandlerAd
 				url = "/" + url;
 			}
 			sendRedirect(url, request, response);
-		} else if (location.startsWith("http://") || location.startsWith("https://")) {
+		} else //if (location.startsWith("http://") || location.startsWith("https://")) {
+        {
 			sendRedirect(location, request, response);
-		} else {
+		} /*else {
 			if (isRedirectServletRelative(request)) {
 				sendServletRelativeRedirect(location, request, response);
 			} else {
 				sendContextRelativeRedirect(location, request, response);
 			}
-		}
+		}   */
 	}
 
 	/**
